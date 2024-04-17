@@ -4,11 +4,17 @@ from studentorg.models import Organization
 from studentorg.forms import OrganizationForm
 from django.urls import reverse_lazy
 
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
+
+
 from typing import Any
 from django.db.models.query import QuerySet
 from django.db.models import Q
 
 template_name = "home.hmtl"
+
+@method_decorator(login_required, name='dispatch')
 
 class HomePageViewt(ListView):
         model = Organization
