@@ -20,6 +20,7 @@ content-between mt-3">
                 <span class="page-link">Prev</span>
             </li>
             {% endif %} {% for page_num in paginator.page_range %} {% page_obj.number == page_num %}
+
             <li class="page-item activate">
                 <span class="page-link">
                     {{ page_num }}
