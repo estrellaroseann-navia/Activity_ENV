@@ -7,7 +7,6 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
-
 from typing import Any
 from django.db.models.query import QuerySet
 from django.db.models import Q
@@ -46,6 +45,11 @@ class OrganizationCreateView(UpdateView):
     model = Organization
     form_class = OrganizationForm
     template_name = "org_edit.html"
+    success_url = reverse_lazy('organization-list')
+
+class OrganizationUpdateView(UpdateView):
+    model = Organization
+    template_name =  'org_del.html'
     success_url = reverse_lazy('organization-list')
 
 class OrganizationDeleteView(DeleteView):
